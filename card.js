@@ -22,7 +22,7 @@ function shufflePack(pack) {
      pack[i] = tempj;
      pack[j] = tempi;
    }
-  return pack;
+  return   pack;
 }
 
 
