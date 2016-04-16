@@ -1,0 +1,139 @@
+<html>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Lakdi Game</title>
+    <link rel="shortcut icon" href="/lakdi.jpg">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+         <link rel="stylesheet" type="text/css" href="/new.css" media="screen" />
+
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+ <script type="text/javascript">
+function demoDisplay(l1) {
+    var temp = l1.split("&");
+       var s0=temp[0];
+        var s1=temp[1];
+        var s2=temp[2];
+        document.getElementById(l1).style.display = "none";
+        var myC="<div class='card rank-"+temp[1]+" "+temp[2]+"'><span class='rank'>"+temp[1]+"</span> <span class='suit'>&"+temp[2]+";</span></div>";
+        document.getElementById(temp[0]).innerHTML =myC;
+        alert(s1+s2+<%= player1 %>);
+}
+ </script>
+<body >
+	<div class="playingCards fourColours rotateHand" >
+      <!--Bot 2-->
+<div style="padding-left: 41%;">
+ <ul class="hand" >
+    <% a2.forEach(function(a) {
+         temp = a.split("&");
+         s1=temp[0];
+         s2=temp[1];
+         s1=s1.replace("13", "K");
+      s1=s1.replace("12", "Q");
+      s1=s1.replace("11", "J");
+      s1=s1.replace("1", "A");
+      s1=s1.replace("10", "10");
+      s1=s1.replace("A0", "10");
+        %>
+    <li>
+            <a class="card back" id="u2&<%= s1 %>&<%= s2 %>" onclick="demoDisplay('u2&<%= s1 %>&<%= s2 %>')">
+                <span class="rank"><%= s1 %></span>
+                <span class="suit">&<%= s2 %>;</span>
+            </a>
+        </li>
+        <% }); %>
+    </ul>
+</div>
+
+<!--Bot 3-->
+
+<div class="left">
+<ul class="hand">
+    <% a3.forEach(function(a) {
+         temp = a.split("&");
+         s1=temp[0];
+         s2=temp[1];
+         s1=s1.replace("13", "K");
+      s1=s1.replace("12", "Q");
+      s1=s1.replace("11", "J");
+      s1=s1.replace("1", "A");
+      s1=s1.replace("10", "10");
+      s1=s1.replace("A0", "10");
+        %>
+    <li>
+            <a class="card back" id="u3&<%= s1 %>&<%= s2 %>" onclick="demoDisplay('u3&<%= s1 %>&<%= s2 %>')">
+                <span class="rank"><%= s1 %></span>
+                <span class="suit">&<%= s2 %>;</span>
+            </a>
+        </li>
+        <% }); %>
+    </ul>
+</div>
+<!--Bot 1-->
+<div class="right">
+<ul class="hand" >
+    <% a4.forEach(function(a) {
+         temp = a.split("&");
+         s1=temp[0];
+         s2=temp[1];
+         s1=s1.replace("13", "K");
+      s1=s1.replace("12", "Q");
+      s1=s1.replace("11", "J");
+      s1=s1.replace("1", "A");
+      s1=s1.replace("10", "10");
+      s1=s1.replace("A0", "10");
+        %>
+    <li>
+            <a class="card back" id="u1&<%= s1 %>&<%= s2 %>" onclick="demoDisplay('u1&<%= s1 %>&<%= s2 %>')">
+                <span class="rank"><%= s1 %></span>
+                <span class="suit">&<%= s2 %>;</span>
+            </a>
+        </li>
+        <% }); %>
+    </ul>
+</div>
+
+<!--Me-->
+<div  style="background-color:red; height: 300px; margin-left:450px; margin-right:450px;">
+<div id="u2" >
+
+</div>
+  <div id="u3" >
+
+</div>  
+
+ <div id="u1" >
+</div>
+
+<div id="me" >
+</div>
+</div>
+
+<div class ="center-image">
+<!--Playing Table-->
+<ul class="table">
+    <% a1.forEach(function(a) { 
+      temp = a.split("&");
+      s1=temp[0];
+      s1=s1.replace("13", "K");
+      s1=s1.replace("12", "Q");
+      s1=s1.replace("11", "J");
+      s1=s1.replace("1", "A");
+      s1=s1.replace("10", "10");
+      s1=s1.replace("A0", "10");
+      s2=temp[1];
+    	%>
+      <li>
+      
+<a class="card rank-<%= s1 %> <%= s2 %>"   id="me&<%= s1 %>&<%= s2 %>" onclick="demoDisplay('me&<%= s1 %>&<%= s2 %>')"><span class="rank"><%= s1 %></span><span class="suit">&<%= s2 %>;</span></a>
+
+      </li>
+
+    <% }); %>
+    </ul>
+</div>
+</div>
+ 
+</body>
+</html>
